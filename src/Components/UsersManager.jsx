@@ -51,10 +51,11 @@ function UsersManager() {
     <h1>User manager System</h1>
     <div>
         <ul>
-            {users.map((user) =>(
+            {users.slice(0,5).map((user) =>(
                 <li key={user.id}>
                     <h3><strong>{user.name}</strong></h3>
                     <i><p>{user.email}</p></i>
+                    <p>{user.address.city}</p>
                     <button onClick={() => deleteUser(user.id)}> Delete User</button>
                 </li>
             ))}

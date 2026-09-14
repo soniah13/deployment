@@ -109,19 +109,21 @@ function PostsManager() {
   return (
     <>
     <div>
-      <button onClick={addPost} > Add New Post</button>
+      <button onClick={addPost} > Post List</button>
       <h1>Post Manager system</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <h3><strong>{post.title}</strong></h3>
+       <div className='flex flex-wrap gap-6 justify-center items-center'>
+        {posts.length > 0 ? (
+          {posts.map((post) => (
+          <div key={post.id} className='border border-black rounded-md w-[400px] h-[200px] p-4 m-4'>
+            <h3 className='text-blue-600 text-xl'>{post.title}</h3>
             <p>{post.body}</p>
-            <button onClick={() => updatePost(post.id)}>Edit</button>
-            <button onClick={() => deletePost(post.id)}>Delete</button>
-          </li>
-          
+          </div>
         ))}
-      </ul> 
+        ) : (
+          <p>No Posts Available add post to view it. </p>
+        )}
+        
+      </div>
 
     </div>
     
